@@ -60,6 +60,17 @@ apt-get install indicator-multiload
 
 ######################### APPS ##################################
 
+# java
+apt-add-repository ppa:webupd8team/java
+apt-get update
+apt-get install oracle-java8-installer
+
+# MQTT server
+apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
+apt-get update
+apt-get install mosquitto
+ufw allow from 10.0.0.0/24 to any port 1883
+
 # MYTHTV frontend
 apt-get install mythbuntu-control-centre
 # start control centre and setup mythbuntu updates repository and its version
