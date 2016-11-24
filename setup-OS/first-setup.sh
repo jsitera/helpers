@@ -35,8 +35,9 @@ echo "//10.0.0.15/data /data cifs ro,user=denisa,password=${samba-passwd},iochar
 apt-get install openssh-server
 mkdir /root/.ssh
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAtnrEYWS5v54d3w4h5NWWqa9Hhn6kQA42Vg5Q7dym/KzvN4BCizEo1eLn/DP4io0uxKdaMKMfRmadGFB2C+f1fUS3EqCyVmdgFjkMix24/mXPQVMx/XsT4cNwadaNAvcBtJA7bCXGl6Ko5+6yZVdQ5OhHRnckXUJHBOzM78oa2Dk=" > /root/.ssh/authorized_keys
-
-
+# disable passwd login
+sed -i '/#PasswordAuthentication yes/a PasswordAuthentication no' /etc/ssh/sshd_config 
+# or install fail2ban
 
 ################## optional ###################
 # browser homepage
