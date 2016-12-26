@@ -39,6 +39,16 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAtnrEYWS5v54d3w4h5NWWqa9Hhn6kQA42Vg5Q7d
 sed -i '/#PasswordAuthentication yes/a PasswordAuthentication no' /etc/ssh/sshd_config 
 # or install fail2ban
 
+# send email on each login
+apt-get install sendemail
+cat <<EOT >>/etc/ssh/sshrc
+ip=`echo $SSH_CONNECTION | cut -d " " -f 1`
+
+logger -t ssh-wrapper $USER login from $ip
+echo "User $USER just logged in from $ip" | sendemail -q -u "SSH Login" -f "Originator <from@address.com>" -t "Your Name <your.email@domain.com>" -s smtp.server.com &
+EOT
+
+
 ################## optional ###################
 # browser homepage
 
