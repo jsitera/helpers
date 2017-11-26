@@ -69,6 +69,12 @@ apt-get install google-chrome-stable
 # indicators to panel (weather)
 apt-get install indicator-multiload
 
+# automatic backgroud updates from shared folder
+apt install wallch
+# setup by GUI  (folder, times, random shuffle)
+# there is a configfile ~/.config/wallch
+# the files in the folder must be rotated (jhead -autorot *.jpg)
+
 ######################### APPS ##################################
 
 # java
