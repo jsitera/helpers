@@ -1,16 +1,8 @@
-# ubuntu 14.04
-##############
+# ubuntu 18.04 MATE
+###################
 
 # english environemnt, czech locales, primary account with autologin
 # without password
-
-# install session fallback instead of unity
-apt-get install gnome-session-fallback
-# log out and choose gnome(compiz) as a session
-
-# move buttons to the right side
-# gconf-editor
-gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
 
 # UFW firewall enable and setup
 ufw allow from 10.0.0.0/24 to any port 22
