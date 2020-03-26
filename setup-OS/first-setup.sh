@@ -91,3 +91,15 @@ apt-get update
 apt-get install kodi
 wget http://kodi-czsk.github.io/repository/repo/repository.kodi-czsk/repository.kodi-czsk-1.0.2.zip
 # Nastavení -> Doplňky -> Instalovat doplněk ze zip archivu
+
+# FTP server
+apt install vsftpd
+usermod -d /backup ftp
+useradd login
+passwd login
+mkdir /backup/login
+usermod -d /backup/login login
+/usr/sbin/nologin do /etc/passwd
+vi /etc/vsftpd.conf   local_enable=YES  write_enable=YES
+vi /etc/pam.d/vsftpd
+#auth   required        pam_shells.so
