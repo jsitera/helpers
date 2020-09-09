@@ -40,7 +40,7 @@ sed -i '/#PasswordAuthentication yes/a PasswordAuthentication no' /etc/ssh/sshd_
 # or install fail2ban
 
 # send email on each login
-apt-get install sendemail
+apt-get install sendmail
 cat <<EOT >>/etc/ssh/sshrc
 ip=`echo $SSH_CONNECTION | cut -d " " -f 1`
 
