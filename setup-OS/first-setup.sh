@@ -1,16 +1,8 @@
-# ubuntu 14.04
-##############
+# ubuntu 18.04 MATE
+###################
 
 # english environemnt, czech locales, primary account with autologin
 # without password
-
-# install session fallback instead of unity
-apt-get install gnome-session-fallback
-# log out and choose gnome(compiz) as a session
-
-# move buttons to the right side
-# gconf-editor
-gsettings set org.gnome.desktop.wm.preferences button-layout ':minimize,maximize,close'
 
 # UFW firewall enable and setup
 ufw allow from 10.0.0.0/24 to any port 22
@@ -99,3 +91,15 @@ apt-get update
 apt-get install kodi
 wget http://kodi-czsk.github.io/repository/repo/repository.kodi-czsk/repository.kodi-czsk-1.0.2.zip
 # Nastavení -> Doplňky -> Instalovat doplněk ze zip archivu
+
+# FTP server
+apt install vsftpd
+usermod -d /backup ftp
+useradd login
+passwd login
+mkdir /backup/login
+usermod -d /backup/login login
+/usr/sbin/nologin do /etc/passwd
+vi /etc/vsftpd.conf   local_enable=YES  write_enable=YES
+vi /etc/pam.d/vsftpd
+#auth   required        pam_shells.so
