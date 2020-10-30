@@ -1,0 +1,31 @@
+# docker-compose up -d
+# docker-compose logs -f
+# docker exec -it dockercompose_samba_1 /bin/bash
+
+
+
+version: '3.4'
+
+services:
+  samba:
+    image: dperson/samba
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    restart: unless-stopped
+    tty: true
+    healthcheck:  
+      disable: true  
+    environment:  
+      - WORKGROUP=workgroup  
+     # - GLOBAL=log level = 2
+      - GLOBAL2=force group =
+      - GLOBAL3=force user =
+      - USER=denisa;pass;1000;1000;1000 
+      - USER2=sitera;pass;1001;1001;1001
+      - RECYCLE=false  
+      - SHARE=data;/data;yes;no;no;;
+    volumes:
+      - /data:/data
