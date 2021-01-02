@@ -1,0 +1,18 @@
+# docker-compose up -d
+# docker-compose logs -f
+# docker exec -it smokeping_smokeping_1 /bin/bash
+# access IP:8080/smokeping/smokeping.cgi
+
+
+version: '3.4'
+
+services:
+  smokeping:
+    image: dperson/smokeping
+    ports:
+      - 8080:80
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - /root/smokeping/etc:/etc/smokeping
+      - /root/smokeping/var:/var/lib/smokeping

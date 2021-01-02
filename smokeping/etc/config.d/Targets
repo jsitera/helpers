@@ -1,0 +1,53 @@
+*** Targets ***
+
+probe = FPing
+
+menu = Top
+title = Network Latency Grapher
+remark = Welcome to the SmokePing website of Japi. \
+         Here you will learn all about the latency of our network.
+
++ Local
+
+menu = Local
+title = Local Network
+#parents = owner:/Test/James location:/
+
+++ LocalMachine
+
+menu = Local Machine
+title = This host
+host = localhost
+#alerts = someloss
+
++ Remote
+menu = Remote
+title = ISP link quality
+
+++ ZCU
+
+menu = ZCU
+title = ZCU - ftp.zcu.cz
+host = ftp.zcu.cz
+alerts = someloss
+
+++ WIFI_link_local_end
+
+menu = WIFI link local end
+title = WIFI link local end
+host = 100.83.53.207
+
+++ WIFI_link_remote_end
+
+menu = WIFI link remote end
+title = WIFI link remote end
+host = 100.83.53.1
+
+
+++ speedtest_cesnet_HTTP
+
+menu = HTTP speedtest.cesnet
+title = HTTP speedtest.cesnet
+probe = EchoPingHttp
+host = speedtest.cesnet.cz
+url = /empty.php

@@ -1,0 +1,25 @@
+*** Probes ***
+
++ FPing
+
+binary = /usr/bin/fping
+
++EchoPingHttp
+
+binary = /usr/bin/echoping
+forks = 5
+offset = 50%
+#step = 300
+
+# The following variables can be overridden in each target section
+accept_redirects = yes
+ignore_cache = yes
+ipversion = 4
+pings = 5
+port = 80
+priority = 6
+revalidate_data = no
+timeout = 20
+tos = 0xa0
+url = /
+waittime = 1
