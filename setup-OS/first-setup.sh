@@ -1,4 +1,4 @@
-# ubuntu 18.04 MATE
+# ubuntu 20.04 MATE
 ###################
 
 # english environemnt, czech locales, primary account with autologin
