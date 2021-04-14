@@ -22,3 +22,9 @@ Match Group sftpusers
         ChrootDirectory /backup/%u
         ForceCommand internal-sftp
         PasswordAuthentication yes
+
+# samba server
+# ============
+apt install docker.io
+cd /root
+use docker-compose https://github.com/jsitera/helpers/tree/master/samba
