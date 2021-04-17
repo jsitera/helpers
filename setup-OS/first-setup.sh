@@ -11,15 +11,19 @@ ufw status
 
 # configure screensaver - no password for unlock
 #                       - no autolock
-#  no password after resume
+# (preferences/screen saver)
+# no password after resume
 
-# keyboard setup
+# keyboard setup (preferences/keyboard)
 #
 # - US EN and CZ QWERTY, shift-alt as a changer key
 
 # setup samba mountpoint - only clients
+apt install cifs-utils
 
-echo "//10.0.0.15/data /data cifs ro,user=denisa,password=${samba-passwd},iocharset=utf8 0 0" >> /etc/fstab
+mount -t cifs -o vers=3.0,username=sitera,uid=sitera '//10.0.2.2/temp' /mnt/NTsh/
+
+#echo "//10.0.0.15/data /data cifs ro,user=denisa,password=${samba-passwd},iocharset=utf8 0 0" >> /etc/fstab
 
 # enable HW drivers and HW acceleration (NVidia) VPAU
 
